@@ -1,10 +1,13 @@
 class UsersController < ApplicationController
+
+ before_action :logged_in_user, only: [:index, :edit, :update]
+
   def index
+     @users = User.all
   end
 
   def show
-    @username = User.find(params[:id]).username
-    @email = User.find(params[:id]).email
+    @user = User.find(session[:user_id])
   end
 
   def new
@@ -21,6 +24,14 @@ class UsersController < ApplicationController
       flash[:success] = "Profile updated"
       redirect_to @user
   end
+
+  def logged_in_user
+      unless logged_in?
+        store_location
+        flash[:danger] = "Please log in."
+        redirect_to login_url
+      end
+    end
 
   def create
     @user = User.new(user_params)
