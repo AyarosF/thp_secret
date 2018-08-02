@@ -46,7 +46,7 @@ class UsersController < ApplicationController
     if @user.save
       log_in @user
       flash[:success] = "Salut salut !"
-      redirect_to @user
+      redirect_to '/secret'
     else
       render 'new'
     end
