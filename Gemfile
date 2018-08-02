@@ -6,6 +6,9 @@ ruby '2.5.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
 # Use bcrypt for hashing the password
+gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
+gem 'rails-ujs', '~> 0.1.0'
+gem 'bootstrap-sass', '3.3.7'
 gem 'bcrypt', '~> 3.1.12'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'

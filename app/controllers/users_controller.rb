@@ -18,10 +18,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      #log_in @user
-      #flash[:success] = "Salut salut !"
+      log_in @user
+      flash[:success] = "Salut salut !"
       redirect_to @user
-      # Handle a successful save.
     else
       render 'new'
     end
@@ -39,8 +38,6 @@ class UsersController < ApplicationController
     @user.update_attributes(user_params)
       flash[:success] = "Profile updated"
       redirect_to @user
-    
-  
   end
 
   def destroy
