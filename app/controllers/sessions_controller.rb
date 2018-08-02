@@ -7,6 +7,8 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
      # Log the user in and redirect to the answer
       log_in user
+      #the params hash for submitted login forms now includes a value based on the checkbox (’1’ if the box is checked and ’0’ if it isn’t)
+      params[:session][:remember_me] == '1' ? remember(user) : forget(user)
       redirect_to '/'
     else
      # Create an error message
@@ -16,7 +18,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    log_out
+    log_out if logged_in?
     redirect_to root_url
   end
 end
