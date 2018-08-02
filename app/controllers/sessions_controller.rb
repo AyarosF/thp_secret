@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
       redirect_to '/secret'
     else
      # Create an error message
-      flash.now[:danger] = 'Le mail et le mot de passe ne correspondent pas'
+      flash.now[:danger] = 'Ah ben bravo... le mail et le mot de passe ne correspondent pas !'
       render 'new'
    end
   end

@@ -2,14 +2,13 @@ class UsersController < ApplicationController
 
  before_action :logged_in_user, only: [:index, :edit, :update]
  before_action :correct_user, only: [:edit, :update]
- before_action :set_user, only: [:show, :edit, :update, :correct_user]
-
 
   def index
-     @users = User.all
+    @users = User.all
   end
 
   def show
+    @user = User.find(params[:id])
   end
 
   def new
@@ -17,9 +16,11 @@ class UsersController < ApplicationController
   end
 
   def edit
+     @user = User.find(params[:id])
   end
 
   def update
+    @user = User.find(params[:id])
     @user.update_attributes(user_params)
       flash[:success] = "Profile updated"
       redirect_to @user
@@ -38,18 +39,20 @@ class UsersController < ApplicationController
       redirect_to '/answer'
     else
       redirect_to login_url
+      flash[:success] = "Connecte toi pour connaître la réponse !"
   end
   end
 
   def correct_user
-      redirect_to(root_url) unless @user == current_user
+    @user = User.find(params[:id])
+    redirect_to(root_url) unless @user == current_user
   end
 
   def create
     @user = User.new(user_params)
     if @user.save
       log_in @user
-      flash[:success] = "Salut salut !"
+      flash[:success] = "Voili voilou"
       redirect_to '/secret'
     else
       render 'new'
@@ -66,7 +69,4 @@ class UsersController < ApplicationController
                                    :password_confirmation)
   end
 
-  def set_user
-    @user = User.find(params[:id])
-  end
 end

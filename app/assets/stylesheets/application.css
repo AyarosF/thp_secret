@@ -22,6 +22,7 @@ body {
   background-color: rgb(243, 242, 245);
   padding-top: 60px;
   overflow-x: hidden;
+  margin-top: 30px;
 }
 
 section {
@@ -42,7 +43,15 @@ textarea {
 
 .nav {
   height: 60px;
+  font-size: 15px;
+  padding-top: 10px;
 }
+
+.dropdown-menu {
+  background-color: rgb(166, 166, 166);
+  border-radius: 5px;
+}
+
 
 /* typography */
 
@@ -97,13 +106,37 @@ input {
   margin-left: 0;
 }
 
+#error_explanation {
+  color: red;
+  ul {
+    color: red;
+    margin: 0 0 30px 0;
+  }
+}
+
+.field_with_errors {
+  @extend .has-error;
+  .form-control {
+    color: $state-danger-text;
+  }
+}
+
 .footer {
     position: fixed;
     left: 0;
     bottom: 0;
     width: 100%;
-    background-color: grey;
+    background-color: rgb(166, 166, 166);
     color: white;
     text-align: center;
     padding-top: 10px;
+}
+
+.showtext p {
+  font-size: 20px;
+}
+
+.showtext #sijamais {
+  font-size: 15px;
+  font-variant:small-caps;
 }

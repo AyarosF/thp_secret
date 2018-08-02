@@ -1,24 +1,27 @@
-# README
+# La réponse de l'univers - projet THP 2 août 2018
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Après avoir cloné le repo
 
-Things you may want to cover:
+- `bundle install without--production`
 
-* Ruby version
+- `rails db:migrate`
 
-* System dependencies
+## L'application
 
-* Configuration
+### Heroku
 
-* Database creation
+Vous trouverez l'application hébergée sur Heroku au lien suivant : https://thp-secret.herokuapp.com/
 
-* Database initialization
+### Le projet
 
-* How to run the test suite
+Ne permettre qu'aux utilisateurs connectés de connaître la réponse à la fameuse question
 
-* Services (job queues, cache servers, search engines, etc.)
+- Les utilisateurs qui s'inscrivent sont automatiquement connectés
+- Seuls les utilisateurs connectés :
+    - voient un onglet 'Ton compte' et peuvent modifier leur profil
+    - voient la liste des utilisateurs inscrits
+- Quand un utilisateur coche la case 'se souvenir de moi au moment du login sont mis en place des cookies permanents
 
-* Deployment instructions
+## La team
 
-* ...
+Ce programme est made in Strasbourg, by Soraya FRUCTUOSO, Samaneh VAEZI et Hugo PAYET avec amour ! Bonne correction les amis :kissing_heart:
