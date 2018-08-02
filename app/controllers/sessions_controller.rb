@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       log_in user
       #the params hash for submitted login forms now includes a value based on the checkbox (’1’ if the box is checked and ’0’ if it isn’t)
       params[:session][:remember_me] == '1' ? remember(user) : forget(user)
-      redirect_to '/'
+      redirect_to '/secret'
     else
      # Create an error message
       flash.now[:danger] = 'Le mail et le mot de passe ne correspondent pas'
