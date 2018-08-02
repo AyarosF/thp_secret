@@ -33,6 +33,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def secret
+    if logged_in?
+      redirect_to '/answer'
+    else
+      redirect_to login_url
+  end
+  end
+
   def correct_user
       redirect_to(root_url) unless @user == current_user
   end
